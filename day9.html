@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Tasks</title>
+    <style>
+        body{
+            background-color: #424242;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        .bordered {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body >
+
+    <h1>Activity 1: Selecting and Manipulating Elements</h1>
+    <p id="paragraph1">This is the original text.</p>
+    <p class="highlight">This paragraph has a highlighted background.</p>
+
+    <h1>Activity 2: Creating and Appending Elements</h1>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <h1>Activity 3: Removing Elements</h1>
+    <p id="paragraph2">This paragraph will be removed.</p>
+    <ul id="myList2">
+        <li>Item A</li>
+        <li>Item B</li>
+        <li>Item C</li>
+    </ul>
+
+    <h1>Activity 4: Modifying Attributes and Classes</h1>
+    <img id="myImage" src="https://images.pexels.com/photos/672630/pexels-photo-672630.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Old Image">
+    <p id="paragraph3">This paragraph will be highlighted.</p>
+
+    <h1>Activity 5: Event Handling</h1>
+    <p id="paragraph4">Original text</p>
+    <button id="myButton">Click me</button>
+    <p id="paragraph5" class="bordered">Hover over this paragraph.</p>
+
+    <script>
+        // Activity 1: Selecting and Manipulating Elements
+
+        // Task 1 :Select an HTML element by its ID and change its text content.
+        document.getElementById("paragraph1").textContent = "This is the updated text.";
+        
+        // Task 2 :Select an HTML element by its class and change its background color.
+        document.querySelector(".highlight").style.backgroundColor = "lightblue";
+
+
+        // Activity 2: Creating and Appending Elements
+        
+        // Task 3 :Create a new "div" element with some text content and append it to the body.
+        let newDiv = document.createElement("div");
+        newDiv.textContent = "This is a new div element.";
+        document.body.appendChild(newDiv);
+
+        // Task 4 : Create a new "li" element and add it to an existing "ul" list.
+        let newItem = document.createElement("li");
+        newItem.textContent = "Item 3";
+        document.getElementById("myList").appendChild(newItem);
+
+
+        // Activity 3: Removing Elements
+        
+        // Task 5 :Select an HTML element and remove it from the DOM.
+        let paragraph2 = document.getElementById("paragraph2");
+        paragraph2.remove();
+        
+        // Task 6 :Remove the last child of a specific HTML element.
+        let list = document.getElementById("myList2");
+        list.removeChild(list.lastElementChild);
+
+
+        // Activity 4: Modifying Attributes and Classes
+        
+        // Task 7 :Select an HTML element and change one of its attributes (e.g., "src" of an "img" tag).
+        document.getElementById("myImage").src = "https://images.pexels.com/photos/57901/pexels-photo-57901.jpeg?auto=compress&cs=tinysrgb&w=600";
+        
+        // Task 8 :Add and remove a CSS class to/from an HTML element.
+        let paragraph3 = document.getElementById("paragraph3");
+        paragraph3.classList.add("highlight");
+        // To remove the class, uncomment the line below
+        // paragraph3.classList.remove("highlight");
+
+
+        // Activity 5: Event Handling
+
+        // Task 9 :Add a click event listener to a button that changes the text content of a paragraph.
+        document.getElementById("myButton").addEventListener("click", function() {
+            document.getElementById("paragraph4").textContent = "Text changed!";
+        });
+
+        // Task 10 :Add a mouseover event listener to an element that changes its border color.
+        document.getElementById("paragraph5").addEventListener("mouseover", function() {
+            this.style.borderColor = "red";
+        });
+    </script>
+</body>
+</html>
